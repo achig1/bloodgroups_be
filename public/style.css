@@ -1,0 +1,144 @@
+
+    :root {
+        --nav: #0a0a0b;
+        --aboutme: #9fc9c8;
+        --education: #90A8C3;
+        --experience: #AFC1D6;
+        --projects: #AFC1D6;
+        --blogs: #90A8C3;
+        --contact: #AFC1D6;
+       
+   }
+   
+   .container {
+       height: 200vh;
+       display: grid;
+       grid-template-columns: 0.3fr 1fr;
+       grid-template-rows: 0.2fr 0.3fr 1fr 1fr 1fr 0.2fr;
+       grid-template-areas: "nav nav" "aboutme info" "experience experience" "education education" "projects projects" "blogs blogs" "contact contact";
+       grid-gap: 0.5rem;
+       background-color: #939090;
+   }
+   
+
+   
+   nav {
+       background-color: var(--nav);
+       grid-area: nav;
+   }
+   
+   #aboutme {
+       background-color: var(--aboutme);
+       grid-area: aboutme;
+   }
+   
+   #info {
+       background-color: var(--aboutme);
+       grid-area: info;
+   }
+   
+   #education {
+       background-color: var(--education);
+       grid-area: education;
+   }
+   
+   #experience {
+       background-color: var(--experience);
+       grid-area: experience;
+   }
+   
+   #projects {
+       background-color: var(--projects);
+       grid-area: projects;
+   }
+   
+   #blogs {
+       background-color: var(--blogs);
+       grid-area: blogs;
+   }
+   
+   #contact {
+       background-color: var(--contact);
+       grid-area: contact;
+   }
+   
+   .dateClass {
+       float: right;
+       padding: 10px;
+   }
+   
+   .nameclass {
+       background-color: #303030;
+       color: white;
+   }
+   
+   .topnavclass {
+       overflow: visible;
+   }
+   
+   .topnavclass a {
+       display: block;
+       color: white;
+       padding: 14px 16px;
+       text-decoration: none;
+       font-size: 17px;
+       float: none;
+       text-align: left;
+   }
+   
+   .topnavclass a:hover {
+       background-color: #ddd;
+       color: #5d5b62;
+   }
+   
+   .topnavclass .icon {
+       position: absolute;
+       left: 0;
+       top: 0;
+   }
+   
+   header {
+       width: 100%;
+       padding: 0%;
+       background-color: #303030;
+       height: 15px;
+       position: sticky;
+       text-align: center;
+       font-size: 20px;
+       font-weight: 500;
+   }
+   
+ 
+   
+   .row {
+       display: flex;
+       flex-direction: row;
+       width: 100%;
+   }
+   
+   
+   
+   .contact-details {
+       padding-left: 40%;
+       width: 20%;
+       justify-content: space-around;
+       height: 40px;
+       padding-top: 2%;
+   }
+   
+   .headerbg {
+       background-color: #6d77ae;
+       padding: 5px;
+       color: white;
+       font-size: 17px;
+       font-weight: 500;
+   }
+   
+   
+   @media only screen and (max-width:700px) {
+       .container {
+           grid-template-columns: 1fr;
+           grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr 1fr 1fr 0.8fr 0.2fr;
+           grid-template-areas: "bar" "nav" "aboutme" "info" "education" "experience" "projects" "blogs" "contact";
+       }
+    }
