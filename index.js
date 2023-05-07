@@ -5,18 +5,7 @@ const { MongoClient } = require('mongodb');
 let responseData;
 let DB_NAME = "bloodgroup";
 let COLLECTION_NAME = "list"
-async function main() {
-    const uri = `mongodb+srv://abhilashchigurupati:Abhilash123@cluster0.ir7lucb.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
-    const client = new MongoClient(uri);
-    try {
-        await client.connect();
-        responseData = await getAllDataFromMongo(client)
-    } finally {
-        await client.close();
-    }
-}
-
-main().catch(console.error);
+const uri = `mongodb+srv://abhilashchigurupati:Abhilash123@cluster0.ir7lucb.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 
 const server = http.createServer(async (req, res) => {
     if (req.url === '/') {
@@ -26,8 +15,16 @@ const server = http.createServer(async (req, res) => {
             res.end(content);
         });
     } else if (req.url === '/api') {
+        const client = new MongoClient(uri);
+    try {
+        await client.connect();
+        responseData = await getAllDataFromMongo(client)
         res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
         res.end(JSON.stringify(responseData[0]))
+    } finally {
+        await client.close();
+    }
+       
 
     } else {
         res.writeHead(404, { 'Content-Type': 'text/html' });
